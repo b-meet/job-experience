@@ -1,11 +1,15 @@
 import React from "react";
 
-const Button = ({ companies }) => {
+const Button = ({ handleChange, companies }) => {
 	return (
 		<section className='btn-container'>
 			{companies.map((company, index) => {
 				return (
-					<button className='company-btn' key={company.id}>
+					<button
+						className={"company-btn"}
+						onClick={() => handleChange(index)}
+						key={company.id}
+					>
 						{company.company}
 					</button>
 				);
@@ -15,3 +19,6 @@ const Button = ({ companies }) => {
 };
 
 export default Button;
+
+//companies are just the whole data as details
+//company is a individual element in the array

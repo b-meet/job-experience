@@ -13,18 +13,17 @@ function App() {
 
 	//fetching the api
 
-	const getData = async () => {
-		const resp = await fetch(url);
-		if (resp.status >= 200 && resp.status <= 299) {
-			let data = await resp.json();
-			setIsLoading(false);
-			setDetails(data);
-		} else {
-			setIsError(true);
-		}
-	};
-
 	useEffect(() => {
+		const getData = async () => {
+			const resp = await fetch(url);
+			if (resp.status >= 200 && resp.status <= 299) {
+				let data = await resp.json();
+				setIsLoading(false);
+				setDetails(data);
+			} else {
+				setIsError(true);
+			}
+		};
 		getData();
 	}, []);
 
@@ -48,10 +47,10 @@ function App() {
 				<h1>Job Experience</h1>
 			</section>
 			<section className='content-container'>
-				{details.length > 0 && <Button companies={details} />}
+				<Button handleChange={setIndex} companies={details} />
 				{
 					details.length > 0 && (
-						<Info details={details[index]} />
+						<Info data={details[index]} />
 					) /*to stop rendering before data arrives*/
 				}
 			</section>

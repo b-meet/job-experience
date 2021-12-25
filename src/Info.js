@@ -1,7 +1,7 @@
 import React from "react";
 
-const Info = ({ details }) => {
-	const { company, title, dates, duties } = details;
+const Info = ({ data }) => {
+	const { company, title, dates, duties } = data;
 	return (
 		<section className='info-container'>
 			<h2 className='job-title'>{title}</h2>
@@ -18,3 +18,5 @@ const Info = ({ details }) => {
 };
 
 export default Info;
+
+//data is a individual element in the array
